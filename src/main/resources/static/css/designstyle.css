@@ -1,0 +1,21 @@
+* {
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 200px;
+}
+
+.grid {
+    margin: 20px;
+
+    border: black 3px solid;
+}
+
+.ingredient-group {
+    margin: 30px;
+    display: inline-block;
+    vertical-align: top;
+}

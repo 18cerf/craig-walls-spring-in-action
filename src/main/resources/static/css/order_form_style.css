@@ -1,0 +1,11 @@
+img{
+    width: 200px;
+}
+*{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.validationError{
+    color: red;
+    border: red 1px solid;
+}
