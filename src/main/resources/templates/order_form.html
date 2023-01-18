@@ -17,12 +17,16 @@
             <span th:text="${taco.name}">taco name</span></li>
     </ul>
     <h3>Deliver my taco masterpieces to...</h3>
+
+
     <label for="deliveryName">Name: </label>
     <input type="text" th:field="*{deliveryName}"/>
     <span class="validationError"
           th:if="${#fields.hasErrors('deliveryName')}"
           th:errors="*{deliveryName}">Delivery name error</span>
     <br/>
+
+
     <label for="deliveryStreet">Street address: </label>
     <input type="text" th:field="*{deliveryStreet}"/>
     <span class="validationError"
@@ -67,6 +71,8 @@
           th:errors="*{ccCVV}">CVV error</span>
     <br/>
     <input type="submit" value="Submit Order"/>
+
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 </form>
 </body>
 </html>
