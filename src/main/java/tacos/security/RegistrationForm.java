@@ -15,15 +15,15 @@ import javax.validation.constraints.Size;
 public class RegistrationForm {
     @NotNull
     @Size(min = 4, max = 50)
-    @Pattern(regexp = "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$", message = "abc")
+    @Pattern(regexp = "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$", message = "Username must contain numbers and symbols, min 6, max 50")
     private String username;
 
     @NotNull
-    @Size(min = 5, max = 100)
+    @Size(min = 5, max = 100, message = "password must contain min 5, max 100 symbols and numbers")
     private String password;
 
     @NotNull
-    @Size(min = 3, max = 100)
+    @Size(min = 3, max = 100, message = "min 3, max 100 characters")
     private String fullname;
 
     private String street;

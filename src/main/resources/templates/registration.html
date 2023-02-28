@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Taco Cloud</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="/css/gtvg.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <h1>Register</h1>
-<img th:src="@{/images/TacoCloud.png}"/>
+<img th:src="@{/images/taco.png}"/>
 <form method="POST" th:action="@{/register}" th:object="${registerForm}">
     <div>
     <label for="username">Username: </label>
-    <input type="text" th:field="*{username}"/>
+
+    <input type="text" th:field="*{username}" id="username"/>
     <span class="validationError"
           th:if="${#fields.hasErrors('username')}"
           th:errors="*{username}">username error</span><br>
     </div>
     <div>
     <label for="password">Password: </label>
-    <input type="password" th:field="*{password}"/>
+    <input type="password" th:field="*{password}" id="password"/>
     <span class="validationError"
           th:if="${#fields.hasErrors('password')}"
           th:errors="*{password}">password error</span><br>
@@ -26,10 +29,10 @@
 <!--    <input type="password" name="confirm"/><br/>-->
 <div>
     <label for="fullname">Full name: </label>
-    <input type="text" th:field="*{fullname}"/>
+    <input type="text" th:field="*{fullname}" id="fullname"/>
     <span class="validationError"
-          th:if="${#fields.hasErrors('fullname')}"
-          th:errors="*{fullname}">ingredients error</span><br>
+    th:if="${#fields.hasAnyErrors()}"
+    th:errors="*{fullname}">fullname error</span>
 </div>
     <label for="street">Street: </label>
     <input type="text" th:field="*{street}"/><br/>
@@ -43,6 +46,8 @@
     <input type="text" th:field="*{phone}"/><br/>
 
     <input type="submit" value="Register"/>
+
+    <div th:text="${message}"></div>
 
     <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 
